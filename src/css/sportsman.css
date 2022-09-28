@@ -1,0 +1,59 @@
+.sports-page{
+  padding-top: 130px;
+}
+
+.sportstitle{
+  background-color: #c40d00;
+  color: lightgrey;
+  top: 0;
+  left:0;
+  right:0;
+  height: 70px;
+  position: fixed;
+  z-index: 100;
+}
+
+.sportstitle h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font: Helvetica;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+.sports-deals-card{
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 30px;
+  column-gap: 30px;
+}
+
+.product-box{
+  border: 1px;
+  border-style: solid ;
+  border-color: #aca8aa;
+}
+
+.productimg{
+  width: 150px;
+}
+
+.product-name{
+  height: 45px;
+}
+
+.product-price{
+  display: flex;
+}
+
+.product-save{
+  color: red;
+}
+
+.old-price{
+  padding-left: 10px;  
+}

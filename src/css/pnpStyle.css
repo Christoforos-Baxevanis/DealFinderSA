@@ -1,0 +1,111 @@
+.pnp-page{
+  padding-top: 130px;
+}
+
+.pnptitle{
+  background-color: #970e52;
+  color: #d3d3d3;
+  top: 0;
+  left:0;
+  right:0;
+  height: 70px;
+  position: fixed;
+  z-index: 100;
+}
+
+.pnptitle h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font: Helvetica;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+.pnp-deals-card{
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 30px;
+  column-gap: 30px;
+}
+
+.product-box{
+  border: 1px;
+  border-style: solid ;
+  border-color: #aca8aa;
+}
+
+.product-info{
+  display: flex;
+  flex-direction: row;
+}
+
+.product-name{
+  height: 45px;
+}
+
+.product-promo{
+  margin: 0 auto;
+  text-align: center;
+  font: Arial;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: crimson;
+  color: white;
+}
+
+.product-img{
+  width: 150px;
+  padding-left: 100px;
+}
+
+.promo-price{
+  margin: 0 auto;
+  font: Arial;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: crimson;
+  color: white;
+}
+
+.product-price{
+  display: flex;
+  padding-left: 90px;
+}
+
+.prices-new{
+  padding-left: 90px;
+}
+
+.orginal-price{
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.new-price{
+  font-size: 25px;
+  font-weight: 500;
+  color: red;
+}
+
+.cent-price{
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.smart-stamp{
+  position: absolute;
+  background-color: #0c63aa;
+  color: beige;
+  text-align: center;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-right: 8px;
+  padding-left: 7px;
+  height: 50px;
+  width: 75px;
+  border-radius: 50px;
+}

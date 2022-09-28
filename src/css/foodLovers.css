@@ -1,0 +1,42 @@
+.foodloverstitle{
+    background-color: #16663a;
+    color: lightgrey;
+    margin: auto;
+}
+  
+.foodloverstitle h1{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    font: Helvetica;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+.foodlovers-page h2{
+    font-size: 25px;
+    font-weight: bold;
+    margin: auto;
+    padding-left: 65px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font: Helvetica;
+    font-style: normal;
+    font-stretch: normal;
+    color: #16663a;
+}
+  
+.foodlovers-deals-card{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+}
+
+.foodlovers-deals-card img{
+    width: 370px; 
+    height: 370px; 
+    margin-top: 10px;
+}

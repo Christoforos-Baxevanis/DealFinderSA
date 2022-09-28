@@ -1,0 +1,50 @@
+.spar-page{
+    padding-top: 130px;
+}
+
+.spartitle{
+    background-color: #29b669;
+    color: lightgrey;
+    top: 0;
+    left:0;
+    right:0;
+    height: 70px;
+    position: fixed;
+    z-index: 100;
+}
+  
+.spartitle h1{
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px;
+    font: Helvetica;
+    font-style: normal;
+    font-stretch: normal;
+}
+  
+.spar-page h2{
+    font-size: 25px;
+    font-weight: bold;
+    margin: auto;
+    padding-left: 65px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font: Helvetica;
+    font-style: normal;
+    font-stretch: normal;
+    color: #29b669;
+}
+  
+.spar-deals-card{
+    width: 90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    row-gap: 20px;
+}
+
+.spar-deals-card img{
+    width: 320px; 
+    margin-top: 10px;
+}

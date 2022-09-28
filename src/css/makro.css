@@ -1,0 +1,56 @@
+.makro-page{
+  padding-top: 130px;
+}
+
+.makrotitle{
+  background-color: #0e74d3;
+  color: lightgrey;
+  top: 0;
+  left:0;
+  right:0;
+  height: 70px;
+  position: fixed;
+  z-index: 100;
+}
+
+.makrotitle h1{
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
+  padding: 10px;
+  font: Helvetica;
+  font-style: normal;
+  font-stretch: normal;
+}
+
+.makro-deals-card{
+  width: 90%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  row-gap: 30px;
+  column-gap: 30px;
+}
+
+.product-box{
+  border: 1px;
+  border-style: solid ;
+  border-color: #aca8aa;
+}
+
+.productimg{
+  width: 150px;
+}
+
+.product-name{
+  height: 45px;
+}
+
+.product-price{
+  display: flex;
+}
+
+.product-saving{
+  display: flex;
+  color: red;
+}

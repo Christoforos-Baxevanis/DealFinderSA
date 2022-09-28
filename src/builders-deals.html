@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Builders Warehouse Deals</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/buildersStyle.css">
+</head>
+<body>
+    <div class="builderstitle">
+      <h1>Builders Warehouse Deals</h1>
+    </div>
+    <div class="builders-page">
+      <div class="navbar" style="display: flex">
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pnp-deals.html">PNP</a></li>
+            <li><a href="woolies-deals.html">Woolworths</a></li>
+            <li><a href="spar-deals.html">SPAR</a></li>
+            <li><a href="sportsman-deals.html">Sportsmans</a></li>
+            <li><a href="builders-deals.html">Builders</a></li>
+            <li><a href="makro-deals.html">Makro</a></li>
+            <li class="search-wrapper"><input type="text" placeholder="Type here to search.." id="search" class="search" onkeyup="search()"></li>
+          </ul>	
+        </nav>
+      </div>
+      <div class="builders-deals-card">
+        <script>
+          function newEl(type, attrs={}) {
+              const el = document.createElement(type);
+              for (let attr in attrs) {
+                  const value = attrs[attr];
+                  if (attr == 'innerText') el.innerText = value;
+                  else el.setAttribute(attr, value);
+              }
+              return el;
+          }
+
+          async function loadProducts() {
+              const res = await fetch('http://localhost:3000/productsBuilders');
+              const products = await res.json();
+              const ctr = document.querySelector('.builders-deals-card');
+
+              products.forEach(product => {
+                
+                const card = newEl('div', {class: 'product-box'});
+                
+                const nameContainer = newEl('div', {class: 'product-name'});
+                const priceDiv = newEl('div', {class: 'price-info'});
+                const saveDiv = newEl('div', {class: 'save-info'});
+
+                const name = newEl('span', {class: 'product-name', innerText: product.name})
+                const price = newEl('h4', {class: 'org-price', innerText: product.price});
+                const saveprice = newEl('h3', {class: 'save-price', innerText: product.priceSave});
+
+                if (product.priceSave != 'PRICE'){
+                  card.appendChild(nameContainer);
+                  card.appendChild(priceDiv);
+                  card.appendChild(saveDiv);  
+
+                  nameContainer.appendChild(name);
+                  priceDiv.appendChild(price);
+                  saveDiv.appendChild(saveprice);
+
+                  ctr.appendChild(card);
+                }
+              })  
+          }
+
+          loadProducts();
+        
+        </script>
+        <script src="search.js"></script>
+      </div>
+    </div>
+</body>
+</html>
