@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sportsman Warehouse Deals</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sportsman.css">
+</head>
+<body>
+  <div class="sportstitle">
+    <h1>Sportsman Warehouse Deals</h1>
+  </div>
+  <div class="sports-page"> 
+    <div class="navbar" style="display: flex">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pnp-deals.html">PNP</a></li>
+          <li><a href="woolies-deals.html">Woolworths</a></li>
+          <li><a href="spar-deals.html">SPAR</a></li>
+          <li><a href="sportsman-deals.html">Sportsmans</a></li>
+          <li><a href="builders-deals.html">Builders</a></li>
+          <li><a href="makro-deals.html">Makro</a></li>
+          <li class="search-wrapper"><input type="text" placeholder="Type here to search.." id="search" class="search" onkeyup="search()"></li>
+        </ul>	
+      </nav>
+    </div>
+    <div class="sports-deals-card">
+      <script>
+        function newEl(type, attrs={}) {
+            const el = document.createElement(type);
+            for (let attr in attrs) {
+                const value = attrs[attr];
+                if (attr == 'innerText') el.innerText = value;
+                else el.setAttribute(attr, value);
+            }
+            return el;
+        }
+
+        async function loadProducts() {
+            const res = await fetch('http://localhost:3000/productsSportsman');
+            const products = await res.json();
+            const ctr = document.querySelector('.sports-deals-card');
+
+            products.forEach(product => {
+              const card = newEl('div', {class: 'product-box'});
+
+              const nameContainer = newEl('div', {class: 'product-container'});
+              const imageContainer = newEl('div', {class: 'product-img'});
+              const priceContainer = newEl('div', {class: 'product-price'});
+              const saveContainer = newEl('div', {class: 'product-save'});
+
+              const name = newEl('span', {class: 'product-name', innerText: product.name})
+              const img = newEl('img', {class: 'productimg', src: product.src});
+              const newprice = newEl('h4', {class: 'new-price', innerText: product.newprice});
+              const oldprice = newEl('s', {class: 'old-price', innerText: product.oldprice});
+              const saveprice = newEl('h3', {class: 'save-price', innerText: product.saveprice});
+              
+              card.appendChild(nameContainer);
+              card.appendChild(imageContainer);
+              card.appendChild(priceContainer);
+              card.appendChild(saveContainer);
+
+              nameContainer.appendChild(name);
+              imageContainer.appendChild(img);
+              priceContainer.appendChild(newprice);
+              priceContainer.appendChild(oldprice);
+              saveContainer.appendChild(saveprice);
+                
+              ctr.appendChild(card);
+            
+            })  
+        }
+
+        loadProducts();
+      
+      </script>
+      <script src="search.js"></script>
+    </div>
+  </div>
+</body>
+</html>

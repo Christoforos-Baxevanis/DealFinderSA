@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spar Deals</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/spar.css">
+</head>
+<body>
+    <div class="spartitle">
+      <h1>Spar Deals</h1>
+    </div>
+  <div class="spar-page">
+    <div class="navbar" style="display: flex">
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="pnp-deals.html">PNP</a></li>
+          <li><a href="woolies-deals.html">Woolworths</a></li>
+          <li><a href="spar-deals.html">SPAR</a></li>
+          <li><a href="sportsman-deals.html">Sportsmans</a></li>
+          <li><a href="builders-deals.html">Builders</a></li>
+          <li><a href="makro-deals.html">Makro</a></li>
+        </ul>	
+      </nav>
+    </div>
+    <h2>NATIONAL DEALS</h2>
+    <div class="spar-deals-card">
+      <script>
+        function newEl(type, attrs={}) {
+            const el = document.createElement(type);
+            for (let attr in attrs) {
+                const value = attrs[attr];
+                if (attr == 'innerText') el.innerText = value;
+                else el.setAttribute(attr, value);
+            }
+            return el;
+        }
+
+        async function loadProducts() {
+            const res = await fetch('http://localhost:3000/productsSpar');
+            const products = await res.json();
+            const ctr = document.querySelector('.spar-deals-card');
+            var currentPromo = '';
+
+            products.forEach(product => {
+              const card = newEl('div', {class: 'product-box'});
+              const img = newEl('img', {class: 'productimg', src: product.src});
+              if (product.src != currentPromo){
+                card.appendChild(img);
+                ctr.appendChild(card);
+              }
+              currentPromo = product.src;
+            })  
+        }
+
+        loadProducts();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>

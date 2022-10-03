@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spar Deals</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/ok.css">
+</head>
+<body>
+  <div class="ok-page">
+    <div class="oktitle">
+      <h1>Spar Deals</h1>
+    </div>
+    <h2>NATIONAL DEALS</h2>
+    <div class="ok-deals-card">
+      <script>
+        function newEl(type, attrs={}) {
+            const el = document.createElement(type);
+            for (let attr in attrs) {
+                const value = attrs[attr];
+                if (attr == 'innerText') el.innerText = value;
+                else el.setAttribute(attr, value);
+            }
+            return el;
+        }
+
+        async function loadProducts() {
+            const res = await fetch('http://localhost:3000/productsOK');
+            const products = await res.json();
+            const ctr = document.querySelector('.ok-deals-card');
+            var currentPromo = '';
+
+            products.forEach(deal => {
+                const card = newEl('div', {class: 'ok-product-box'});
+                const valid = newEl('span', {class: 'ok-valid', innerText: deal.timeValid})
+                const link = newEl('button', {class: 'ok-link',value: 'View' ,onclick: product.link})
+                const img = newEl('img', {class: 'okimg', src: deal.src});
+                card.appendChild(img);
+                card.appendChild(valid);
+                card.appendChild(link);
+                ctr.appendChild(card);
+            })  
+        }
+
+        loadProducts();
+      
+      </script>
+    </div>
+  </div>
+</body>
+</html>
